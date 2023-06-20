@@ -1,10 +1,8 @@
 package scorecollection;
 
-import org.junit.jupiter.api.Test;
-
 public class ACreditHistory {
    // START_HIGHLIGHT
-   @Test
+   @org.junit.jupiter.api.Test
    void whatever() {
    }
    // END_HIGHLIGHT
