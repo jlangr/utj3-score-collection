@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals; // <label id="co.im
 
 public class ACreditHistory {
    @Test
-   void withNoCreditRatingsHasAMeanOf0() { // <label id="co.name"/>
+   void withNoCreditRatingsHas0Mean() { // <label id="co.name"/>
       var creditHistory = new CreditHistory(); // <label id="co.arrange"/>
       int result = creditHistory.arithmeticMean(); // <label id="co.act"/>
       assertEquals(0, result); // <label id="co.assert"/>
