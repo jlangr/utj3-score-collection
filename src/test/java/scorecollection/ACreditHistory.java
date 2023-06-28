@@ -20,7 +20,9 @@ public class ACreditHistory {
       var creditHistory = new CreditHistory();
       creditHistory.add(new CreditRating(780, LocalDate.now()));
       int result = creditHistory.arithmeticMean();
+      // START_HIGHLIGHT
       assertEquals(780, result);
+      // END_HIGHLIGHT
    }
    // END:breakTheTest
 }
