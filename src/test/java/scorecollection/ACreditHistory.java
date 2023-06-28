@@ -14,13 +14,13 @@ public class ACreditHistory {
       assertEquals(0, result);
    }
 
+   // START:breakTheTest
    @Test
    void withOneRatingHasEquivalentMean() {
       var creditHistory = new CreditHistory();
       creditHistory.add(new CreditRating(780, LocalDate.now()));
       int result = creditHistory.arithmeticMean();
-      // START:breakTheTest
       assertEquals(780, result);
-      // END:breakTheTest
    }
+   // END:breakTheTest
 }
