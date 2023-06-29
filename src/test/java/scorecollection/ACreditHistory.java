@@ -29,7 +29,6 @@ class ACreditHistory {
       assertEquals(780, result);
    }
 
-   // START:manyTest
    @Test
    void withMultipleRatingsDividesTotalByCount() {
       creditHistory.add(new CreditRating(780, LocalDate.now()));
@@ -40,5 +39,4 @@ class ACreditHistory {
 
       assertEquals(800, result);
    }
-   // END:manyTest
 }
