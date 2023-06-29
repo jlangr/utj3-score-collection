@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 // START:testClass
-public class ACreditHistory {
+class ACreditHistory {
    @Test
    void withNoCreditRatingsHas0Mean() {
       var creditHistory = new CreditHistory();
