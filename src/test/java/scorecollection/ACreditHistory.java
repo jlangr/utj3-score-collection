@@ -1,6 +1,6 @@
 package scorecollection;
 
-public class ACreditHistory {
+class ACreditHistory {
    // START_HIGHLIGHT
    @org.junit.jupiter.api.Test
    void whatever() {
