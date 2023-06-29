@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ACreditHistory {
+class ACreditHistory {
    // START_HIGHLIGHT
    CreditHistory creditHistory;
    // END_HIGHLIGHT
