@@ -1,23 +1,17 @@
 package scorecollection;
 
-// START_HIGHLIGHT
 import org.junit.jupiter.api.BeforeEach;
-// END_HIGHLIGHT
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ACreditHistory {
-   // START_HIGHLIGHT
    CreditHistory creditHistory;
-   // END_HIGHLIGHT
 
-   // START_HIGHLIGHT
    @BeforeEach
    void createInstance() {
       creditHistory = new CreditHistory();
    }
-   // END_HIGHLIGHT
 
    @Test
    void withNoCreditRatingsHas0Mean() {
@@ -34,4 +28,17 @@ class ACreditHistory {
 
       assertEquals(780, result);
    }
+
+   // START:manyTest
+   @Test
+   void withMultipleRatingsDividesTotalByCount() {
+      creditHistory.add(new CreditRating(780, LocalDate.now()));
+      creditHistory.add(new CreditRating(800, LocalDate.now()));
+      creditHistory.add(new CreditRating(820, LocalDate.now()));
+
+      int result = creditHistory.arithmeticMean();
+
+      assertEquals(800, result);
+   }
+   // END:manyTest
 }
