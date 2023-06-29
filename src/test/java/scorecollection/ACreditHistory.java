@@ -1,11 +1,10 @@
 package scorecollection;
 
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// START:testClass
 public class ACreditHistory {
    @Test
    void withNoCreditRatingsHas0Mean() {
@@ -26,3 +25,4 @@ public class ACreditHistory {
    }
    // END:breakTheTest
 }
+// END:testClass
