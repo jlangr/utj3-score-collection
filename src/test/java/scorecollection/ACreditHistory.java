@@ -18,7 +18,9 @@ public class ACreditHistory {
    // START:scannability
    @Test
    void withOneRatingHasEquivalentMean() {
+      // START:arrange
       var creditHistory = new CreditHistory();
+      // END:arrange
       creditHistory.add(new CreditRating(780, LocalDate.now()));
 
       int result = creditHistory.arithmeticMean();
