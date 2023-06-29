@@ -4,11 +4,14 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// START:testClass
 public class ACreditHistory {
    @Test
    void withNoCreditRatingsHas0Mean() {
       var creditHistory = new CreditHistory();
+
       int result = creditHistory.arithmeticMean();
+
       assertEquals(0, result);
    }
 
@@ -24,3 +27,4 @@ public class ACreditHistory {
    }
    // END:scannability
 }
+// END:testClass
