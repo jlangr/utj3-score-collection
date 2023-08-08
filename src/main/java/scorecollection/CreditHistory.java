@@ -9,10 +9,14 @@ public class CreditHistory {
       ratings.add(rating);
    }
 
+   // START:zero
    public int arithmeticMean() {
+      // START_HIGHLIGHT
       if (ratings.size() == 0) return 0;
+      // END_HIGHLIGHT
 
       var total = ratings.stream().mapToInt(CreditRating::rating).sum();
       return total / ratings.size();
    }
+   // END:zero
 }

@@ -13,12 +13,14 @@ class ACreditHistory {
       creditHistory = new CreditHistory();
    }
 
+   // START:zero
    @Test
    void withNoCreditRatingsHas0Mean() {
       int result = creditHistory.arithmeticMean();
 
       assertEquals(0, result);
    }
+   // END:zero
 
    @Test
    void withOneRatingHasEquivalentMean() {
