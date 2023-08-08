@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ACreditHistory {
    CreditHistory creditHistory;
@@ -16,9 +17,8 @@ class ACreditHistory {
    // START:zero
    @Test
    void withNoCreditRatingsHas0Mean() {
-      int result = creditHistory.arithmeticMean();
-
-      assertEquals(0, result);
+      assertThrows(IllegalStateException.class,
+         () -> creditHistory.arithmeticMean());
    }
    // END:zero
 
