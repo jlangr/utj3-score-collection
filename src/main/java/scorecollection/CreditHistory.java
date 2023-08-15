@@ -1,6 +1,5 @@
 package scorecollection;
 
-import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +17,7 @@ public class CreditHistory {
       return total / ratings.size();
    }
 
+   // START: daysSpanned
    public long daysSpanned() {
       if (ratings.isEmpty()) return 0;
       if (ratings.size() == 1) return 1;
@@ -25,4 +25,5 @@ public class CreditHistory {
       var lastDate = ratings.get(ratings.size() - 1).date();
       return firstDate.until(lastDate, ChronoUnit.DAYS);
    }
+   // END: daysSpanned
 }

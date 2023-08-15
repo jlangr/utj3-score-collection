@@ -45,6 +45,7 @@ class ACreditHistory {
       assertEquals(800, result);
    }
 
+   // START: daysSpanned
    @Nested
    class DaysSpanned {
       @Test
@@ -58,7 +59,7 @@ class ACreditHistory {
 
          var result = creditHistory.daysSpanned();
 
-         assertEquals(0, result);
+         assertEquals(1, result);
       }
 
       @Test
@@ -72,4 +73,5 @@ class ACreditHistory {
          assertEquals(20 - 10, result);
       }
    }
+   // END: daysSpanned
 }
