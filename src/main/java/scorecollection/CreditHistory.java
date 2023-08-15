@@ -1,5 +1,7 @@
 package scorecollection;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +11,18 @@ public class CreditHistory {
       ratings.add(rating);
    }
 
-   // START:zero
    public int arithmeticMean() {
-      // START_HIGHLIGHT
       if (ratings.size() == 0) throw new IllegalStateException();
-      // END_HIGHLIGHT
 
       var total = ratings.stream().mapToInt(CreditRating::rating).sum();
       return total / ratings.size();
    }
-   // END:zero
+
+   public long daysSpanned() {
+      if (ratings.isEmpty()) return 0;
+      if (ratings.size() == 1) return 1;
+      var firstDate = ratings.get(0).date();
+      var lastDate = ratings.get(ratings.size() - 1).date();
+      return firstDate.until(lastDate, ChronoUnit.DAYS);
+   }
 }
