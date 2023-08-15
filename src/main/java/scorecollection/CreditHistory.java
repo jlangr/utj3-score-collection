@@ -1,5 +1,6 @@
 package scorecollection;
 
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,12 @@ public class CreditHistory {
    public void add(CreditRating rating) {
       ratings.add(rating);
    }
+
+   // START: addCreditRating
+   public void addCreditRating(int rating) {
+      ratings.add(new CreditRating(rating, LocalDate.now()));
+   }
+   // END: addCreditRating
 
    public int arithmeticMean() {
       if (ratings.size() == 0) throw new IllegalStateException();
