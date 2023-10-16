@@ -26,6 +26,14 @@ class ACreditHistory {
    // END:zero
 
    @Test
+   void throwsExceptionWhenAddingNull() {
+      creditHistory.add(null);
+
+      assertThrows(NullPointerException.class,
+         () -> creditHistory.arithmeticMean());
+   }
+
+   @Test
    void withOneRatingHasEquivalentMean() {
       creditHistory.add(new CreditRating(780, LocalDate.now()));
 

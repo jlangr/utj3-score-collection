@@ -7,6 +7,7 @@ import java.util.List;
 
 public class CreditHistory {
    private final List<CreditRating> ratings = new ArrayList<>();
+
    public void add(CreditRating rating) {
       ratings.add(rating);
    }
