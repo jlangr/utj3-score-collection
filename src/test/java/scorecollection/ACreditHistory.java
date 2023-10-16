@@ -1,3 +1,4 @@
+// START:null
 package scorecollection;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -16,12 +17,13 @@ class ACreditHistory {
    void createInstance() {
       creditHistory = new CreditHistory();
    }
-
+   // END:null
    @Test
    void withNoCreditRatingsHas0Mean() {
       assertThrows(IllegalStateException.class,
          () -> creditHistory.arithmeticMean());
    }
+   // START:null
 
    @Test
    void throwsExceptionWhenAddingNull() {
@@ -30,6 +32,7 @@ class ACreditHistory {
       assertThrows(NullPointerException.class,
          () -> creditHistory.arithmeticMean());
    }
+   // END:null
 
    @Test
    void withOneRatingHasEquivalentMean() {
@@ -78,4 +81,6 @@ class ACreditHistory {
          assertEquals(20 - 10, result);
       }
    }
+   // START:null
 }
+// END:null
