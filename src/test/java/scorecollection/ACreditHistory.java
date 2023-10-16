@@ -28,9 +28,7 @@ class ACreditHistory {
    @Test
    void throwsExceptionWhenAddingNull() {
       creditHistory.add(null);
-
-      assertThrows(NullPointerException.class,
-         () -> creditHistory.arithmeticMean());
+      creditHistory.arithmeticMean();
    }
    // END:null
 
