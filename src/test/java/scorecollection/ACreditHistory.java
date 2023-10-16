@@ -52,7 +52,7 @@ class ACreditHistory {
 
       assertEquals(800, result);
    }
-   // START:happyPath
+   // END:happyPath
 
    @Nested
    class DaysSpanned {
