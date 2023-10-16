@@ -41,6 +41,7 @@ class ACreditHistory {
       assertEquals(780, result);
    }
 
+   // START:happyPath
    @Test
    void withMultipleRatingsDividesTotalByCount() {
       creditHistory.add(new CreditRating(780, LocalDate.now()));
@@ -51,6 +52,7 @@ class ACreditHistory {
 
       assertEquals(800, result);
    }
+   // START:happyPath
 
    @Nested
    class DaysSpanned {
