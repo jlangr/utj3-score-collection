@@ -22,7 +22,9 @@ public class CreditHistory {
    public int arithmeticMean() {
       if (ratings.size() == 0) throw new IllegalStateException();
 
+      // START_HIGHLIGHT
       var total = ratings.stream().mapToInt(CreditRating::rating).sum();
+      // END_HIGHLIGHT
       return total / ratings.size();
    }
    // END:CreditHistory
