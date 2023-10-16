@@ -9,25 +9,25 @@ import java.util.List;
 public class CreditHistory {
    private final List<CreditRating> ratings = new ArrayList<>();
 
+   // START:guard
    public void add(CreditRating rating) {
+      // START_HIGHLIGHT
+      if (rating == null) throw new IllegalArgumentException();
+      // END_HIGHLIGHT
       ratings.add(rating);
    }
-   // END:CreditHistory
+   // END:guard
 
    public void addCreditRating(int rating) {
       ratings.add(new CreditRating(rating, LocalDate.now()));
    }
-   // START:CreditHistory
 
    public int arithmeticMean() {
       if (ratings.size() == 0) throw new IllegalStateException();
 
-      // START_HIGHLIGHT
       var total = ratings.stream().mapToInt(CreditRating::rating).sum();
-      // END_HIGHLIGHT
       return total / ratings.size();
    }
-   // END:CreditHistory
 
    public long daysSpanned() {
       if (ratings.isEmpty()) return 0;
@@ -36,6 +36,4 @@ public class CreditHistory {
       var lastDate = ratings.get(ratings.size() - 1).date();
       return firstDate.until(lastDate, ChronoUnit.DAYS);
    }
-// START:CreditHistory
 }
-// END:CreditHistory

@@ -23,14 +23,14 @@ class ACreditHistory {
       assertThrows(IllegalStateException.class,
          () -> creditHistory.arithmeticMean());
    }
-   // START:null
 
+   // START:assert
    @Test
-   void throwsExceptionWhenAddingNull() {
-      creditHistory.add(null);
-      creditHistory.arithmeticMean();
+   void disallowsAddingNullCreditRating() {
+      assertThrows(IllegalArgumentException.class,
+         () -> creditHistory.add(null));
    }
-   // END:null
+   // END:assert
 
    @Test
    void withOneRatingHasEquivalentMean() {
