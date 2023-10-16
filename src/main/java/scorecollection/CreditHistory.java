@@ -1,4 +1,3 @@
-// START:CreditHistory
 package scorecollection;
 
 import java.time.LocalDate;
@@ -9,15 +8,14 @@ import java.util.List;
 public class CreditHistory {
    private final List<CreditRating> ratings = new ArrayList<>();
 
-   public void add(CreditRating rating) {
-      ratings.add(rating);
-   }
-   // END:CreditHistory
-
    public void addCreditRating(int rating) {
       ratings.add(new CreditRating(rating, LocalDate.now()));
    }
-   // START:CreditHistory
+
+   // START:arithmeticMean
+   public void add(CreditRating rating) {
+      ratings.add(rating);
+   }
 
    public int arithmeticMean() {
       if (ratings.size() == 0) throw new IllegalStateException();
@@ -27,7 +25,7 @@ public class CreditHistory {
       // END_HIGHLIGHT
       return total / ratings.size();
    }
-   // END:CreditHistory
+   // END:arithmeticMean
 
    public long daysSpanned() {
       if (ratings.isEmpty()) return 0;
@@ -36,6 +34,4 @@ public class CreditHistory {
       var lastDate = ratings.get(ratings.size() - 1).date();
       return firstDate.until(lastDate, ChronoUnit.DAYS);
    }
-// START:CreditHistory
 }
-// END:CreditHistory
