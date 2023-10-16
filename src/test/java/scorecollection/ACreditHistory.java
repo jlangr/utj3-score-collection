@@ -17,13 +17,11 @@ class ACreditHistory {
       creditHistory = new CreditHistory();
    }
 
-   // START:zero
    @Test
    void withNoCreditRatingsHas0Mean() {
       assertThrows(IllegalStateException.class,
          () -> creditHistory.arithmeticMean());
    }
-   // END:zero
 
    @Test
    void throwsExceptionWhenAddingNull() {
@@ -53,7 +51,6 @@ class ACreditHistory {
       assertEquals(800, result);
    }
 
-   // START: daysSpanned
    @Nested
    class DaysSpanned {
       @Test
@@ -81,5 +78,4 @@ class ACreditHistory {
          assertEquals(20 - 10, result);
       }
    }
-   // END: daysSpanned
 }
