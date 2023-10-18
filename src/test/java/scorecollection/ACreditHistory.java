@@ -57,7 +57,7 @@ class ACreditHistory {
 
       int result = creditHistory.arithmeticMean();
 
-      assertEquals(1073741824, result);
+      assertEquals(Integer.MAX_VALUE / 2 + 1, result);
    }
    // END:overflow
 
