@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.Month;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ACreditHistory {
    CreditHistory creditHistory;
@@ -48,16 +49,17 @@ class ACreditHistory {
       assertEquals(800, result);
    }
 
+   // START:overflow
    @Test
-   public void improperlyHandlesOverflow() {
+   public void dealsWithIntegerOverflow() {
       creditHistory.add(new CreditRating(Integer.MAX_VALUE, LocalDate.now()));
       creditHistory.add(new CreditRating(1, LocalDate.now()));
 
       int result = creditHistory.arithmeticMean();
-      System.out.println("result " + result);
 
-      assertTrue(result < 0);
+      assertEquals(Integer.MAX_VALUE / 2 + 1, result);
    }
+   // END:overflow
 
    @Nested
    class DaysSpanned {

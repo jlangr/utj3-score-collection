@@ -18,14 +18,20 @@ public class CreditHistory {
       ratings.add(new CreditRating(rating, LocalDate.now()));
    }
 
+   // START:overflow
    public int arithmeticMean() {
       if (ratings.size() == 0) throw new IllegalStateException();
 
       var total = ratings.stream()
+      // START_HIGHLIGHT
                      .mapToLong(CreditRating::rating)
+      // END_HIGHLIGHT
                      .sum();
-      return (int)total / ratings.size();
+      // START_HIGHLIGHT
+      return (int)(total / ratings.size());
+      // END_HIGHLIGHT
    }
+   // END:overflow
 
    public long daysSpanned() {
       if (ratings.isEmpty()) return 0;
