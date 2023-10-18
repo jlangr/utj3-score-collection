@@ -23,13 +23,9 @@ public class CreditHistory {
       if (ratings.size() == 0) throw new IllegalStateException();
 
       var total = ratings.stream()
-      // START_HIGHLIGHT
-                     .mapToLong(CreditRating::rating)
-      // END_HIGHLIGHT
+                     .mapToInt(CreditRating::rating)
                      .sum();
-      // START_HIGHLIGHT
-      return (int)(total / ratings.size());
-      // END_HIGHLIGHT
+      return total / ratings.size();
    }
    // END:overflow
 
