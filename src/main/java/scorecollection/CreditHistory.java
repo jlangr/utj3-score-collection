@@ -9,14 +9,10 @@ import java.util.List;
 public class CreditHistory {
    private final List<CreditRating> ratings = new ArrayList<>();
 
-   // START:guard
    public void add(CreditRating rating) {
-      // START_HIGHLIGHT
       if (rating == null) throw new IllegalArgumentException();
-      // END_HIGHLIGHT
       ratings.add(rating);
    }
-   // END:guard
 
    public void addCreditRating(int rating) {
       ratings.add(new CreditRating(rating, LocalDate.now()));

@@ -1,4 +1,3 @@
-// START:null
 package scorecollection;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -17,20 +16,18 @@ class ACreditHistory {
    void createInstance() {
       creditHistory = new CreditHistory();
    }
-   // END:null
+
    @Test
    void withNoCreditRatingsHas0Mean() {
       assertThrows(IllegalStateException.class,
          () -> creditHistory.arithmeticMean());
    }
 
-   // START:assert
    @Test
    void disallowsAddingNullCreditRating() {
       assertThrows(IllegalArgumentException.class,
          () -> creditHistory.add(null));
    }
-   // END:assert
 
    @Test
    void withOneRatingHasEquivalentMean() {
@@ -51,6 +48,18 @@ class ACreditHistory {
 
       assertEquals(800, result);
    }
+
+   // START:overflow
+   @Test
+   public void dealsWithIntegerOverflow() {
+      creditHistory.add(new CreditRating(Integer.MAX_VALUE, LocalDate.now()));
+      creditHistory.add(new CreditRating(1, LocalDate.now()));
+
+      int result = creditHistory.arithmeticMean();
+
+      assertEquals(1073741824, result);
+   }
+   // END:overflow
 
    @Nested
    class DaysSpanned {
@@ -79,6 +88,4 @@ class ACreditHistory {
          assertEquals(20 - 10, result);
       }
    }
-   // START:null
 }
-// END:null
