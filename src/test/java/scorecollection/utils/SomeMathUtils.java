@@ -55,7 +55,9 @@ public class SomeMathUtils {
       @Test
       void executesInSufficientTime() {
          var numberOfTimes = 100_000;
+
          var elapsedMs = time(numberOfTimes, i -> Newton.squareRoot(i));
+
          assertTrue(elapsedMs < 1000);
       }
       // END:performance
