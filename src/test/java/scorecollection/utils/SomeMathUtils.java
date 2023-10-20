@@ -56,7 +56,7 @@ public class SomeMathUtils {
       void executesInSufficientTime() {
          var numberOfTimes = 100_000;
 
-         var elapsedMs = time(numberOfTimes, i -> Newton.squareRoot(i));
+         var elapsedMs = time(numberOfTimes, i -> Newton.squareRoot(1_000_000 + i));
 
          assertTrue(elapsedMs < 25);
       }
