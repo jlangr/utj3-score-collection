@@ -58,7 +58,7 @@ public class SomeMathUtils {
 
          var elapsedMs = time(numberOfTimes, i -> Newton.squareRoot(i));
 
-         assertTrue(elapsedMs < 1000);
+         assertTrue(elapsedMs < 25);
       }
       // END:performance
    }
