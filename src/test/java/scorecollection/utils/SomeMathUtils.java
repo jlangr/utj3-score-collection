@@ -21,14 +21,14 @@ public class SomeMathUtils {
 
    @Nested
    class SquareRoot {
-      // START:verifiedWithMultiplication
+      // START:verifiedWithInverse
       @Test
-      public void verifiedWithMultiplication() {
+      public void verifiedWithInverse() {
          var result = Newton.squareRoot(250.0);
          assertEquals(250.0, result * result,
             Newton.TOLERANCE);
       }
-      // END:verifiedWithMultiplication
+      // END:verifiedWithInverse
 
       // START:verifiedUsingJavaLibrary
       @Test
