@@ -1,15 +1,12 @@
 // START:find
 package scorecollection;
 
-// ...
-// END:find
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-// START:find
 public class CreditHistory {
    private final List<CreditRating> ratings = new ArrayList<>();
 
