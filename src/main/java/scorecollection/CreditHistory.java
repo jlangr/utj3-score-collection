@@ -1,11 +1,15 @@
-// START:CreditHistory
+// START:find
 package scorecollection;
 
+// ...
+// END:find
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
+// START:find
 public class CreditHistory {
    private final List<CreditRating> ratings = new ArrayList<>();
 
@@ -13,6 +17,8 @@ public class CreditHistory {
       if (rating == null) throw new IllegalArgumentException();
       ratings.add(rating);
    }
+   // ...
+   // END:find
 
    public void addCreditRating(int rating) {
       ratings.add(new CreditRating(rating, LocalDate.now()));
@@ -36,4 +42,14 @@ public class CreditHistory {
       var lastDate = ratings.get(ratings.size() - 1).date();
       return firstDate.until(lastDate, ChronoUnit.DAYS);
    }
+
+   // START:find
+   public List<CreditRating> find(Predicate<CreditRating> predicate) {
+      return ratings.stream().filter(predicate).toList();
+   }
+
+   List<CreditRating> ratings() {
+      return ratings;
+   }
 }
+// END:find
