@@ -41,9 +41,11 @@ public class CreditHistory {
    }
 
    // START:find
+   // START_HIGHLIGHT
    public List<CreditRating> find(Predicate<CreditRating> predicate) {
       return ratings.stream().filter(predicate).toList();
    }
+   // END_HIGHLIGHT
 
    List<CreditRating> ratings() {
       return ratings;
