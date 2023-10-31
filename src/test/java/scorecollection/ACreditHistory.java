@@ -133,5 +133,5 @@ class ACreditHistory {
          assertEquals(List.of(may, april, march), stream.collect(toList()));
       }
    }
-// END
+// END:test
 }
