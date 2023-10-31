@@ -4,9 +4,12 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class CreditHistory {
    private final List<CreditRating> ratings = new ArrayList<>();
@@ -47,9 +50,8 @@ public class CreditHistory {
 
 // START:stream
    public Stream<CreditRating> stream() {
-      var reversedRatings = new ArrayList<>(ratings);
-      Collections.reverse(reversedRatings);
-      return reversedRatings.stream();
+      return ratings.stream().sorted(
+              Comparator.comparing(CreditRating::date).reversed());
    }
 }
 // END:stream
