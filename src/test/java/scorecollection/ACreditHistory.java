@@ -124,8 +124,10 @@ class ACreditHistory {
 
       @Test
       void returnsRatingsInReverseChronologicalOrder() {
-         creditHistory.add(march);
+         // START_HIGHLIGHT
          creditHistory.add(april);
+         creditHistory.add(march);
+         // END_HIGHLIGHT
          creditHistory.add(may);
 
          var stream = creditHistory.stream();

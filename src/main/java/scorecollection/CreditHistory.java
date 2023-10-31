@@ -1,17 +1,11 @@
-// START:stream
 package scorecollection;
 
-// END:stream
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-// START:stream
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-// ... more imports
-// END:stream
 import java.util.function.Predicate;
-// START:stream
 import java.util.stream.Stream;
 
 public class CreditHistory {
@@ -21,8 +15,6 @@ public class CreditHistory {
       if (rating == null) throw new IllegalArgumentException();
       ratings.add(rating);
    }
-   // ...
-// END:stream
 
    public void addCreditRating(int rating) {
       ratings.add(new CreditRating(rating, LocalDate.now()));
@@ -48,12 +40,12 @@ public class CreditHistory {
    public List<CreditRating> find(Predicate<CreditRating> predicate) {
       return ratings.stream().filter(predicate).toList();
    }
-// START:stream
 
    List<CreditRating> ratings() {
       return ratings;
    }
 
+// START:stream
    public Stream<CreditRating> stream() {
       var reversedRatings = new ArrayList<>(ratings);
       Collections.reverse(reversedRatings);
