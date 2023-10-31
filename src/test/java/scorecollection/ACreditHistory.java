@@ -3,9 +3,14 @@ package scorecollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 import java.util.Set;
+
+import static java.util.Calendar.*;
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -107,6 +112,24 @@ class ACreditHistory {
                  .collect(toSet());
          ratings.addAll(inverseRatings);
          assertEquals(Set.of(600, 639, 740, 780), ratings);
+      }
+   }
+
+   @Nested
+   class Stream {
+      CreditRating march = new CreditRating(640, LocalDate.of(2024, MARCH, 10));
+      CreditRating april = new CreditRating(640, LocalDate.of(2024, APRIL, 15));
+      CreditRating may = new CreditRating(640, LocalDate.of(2024, MAY, 20));
+
+      @Test
+      void returnsRatingsInReverseChronologicalOrder() {
+         creditHistory.add(march);
+         creditHistory.add(april);
+         creditHistory.add(may);
+
+         var stream = creditHistory.stream();
+
+         assertEquals(List.of(may, april, march), stream.collect(toList()));
       }
    }
 }
