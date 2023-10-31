@@ -1,4 +1,3 @@
-// START:find
 package scorecollection;
 
 import java.time.LocalDate;
@@ -14,14 +13,11 @@ public class CreditHistory {
       if (rating == null) throw new IllegalArgumentException();
       ratings.add(rating);
    }
-   // ...
-   // END:find
 
    public void addCreditRating(int rating) {
       ratings.add(new CreditRating(rating, LocalDate.now()));
    }
 
-   // START:overflow
    public int arithmeticMean() {
       if (ratings.size() == 0) throw new IllegalStateException();
 
@@ -30,7 +26,6 @@ public class CreditHistory {
                      .sum();
       return total / ratings.size();
    }
-   // END:overflow
 
    public long daysSpanned() {
       if (ratings.isEmpty()) return 0;
@@ -40,15 +35,11 @@ public class CreditHistory {
       return firstDate.until(lastDate, ChronoUnit.DAYS);
    }
 
-   // START:find
-   // START_HIGHLIGHT
    public List<CreditRating> find(Predicate<CreditRating> predicate) {
       return ratings.stream().filter(predicate).toList();
    }
-   // END_HIGHLIGHT
 
    List<CreditRating> ratings() {
       return ratings;
    }
 }
-// END:find

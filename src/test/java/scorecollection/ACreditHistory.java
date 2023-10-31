@@ -49,7 +49,6 @@ class ACreditHistory {
       assertEquals(800, result);
    }
 
-   // START:overflow
    @Test
    public void improperlyHandlesOverflow() {
       creditHistory.add(new CreditRating(Integer.MAX_VALUE, LocalDate.now()));
@@ -59,7 +58,6 @@ class ACreditHistory {
 
       assertTrue(creditHistory.arithmeticMean() < 0);
    }
-   // END:overflow
 
    @Nested
    class DaysSpanned {
@@ -91,7 +89,6 @@ class ACreditHistory {
 
    @Nested
    class FindViaPredicate {
-      // START:find
       @Test
       void returnsMatchingCreditRatings() {
          creditHistory.add(new CreditRating(600, LocalDate.now()));
@@ -99,14 +96,10 @@ class ACreditHistory {
          creditHistory.add(new CreditRating(740, LocalDate.now()));
          creditHistory.add(new CreditRating(780, LocalDate.now()));
 
-         // START_HIGHLIGHT
          var results = creditHistory.find(r -> r.rating() < 740);
-         // END_HIGHLIGHT
 
          var inverseRatings = creditHistory.ratings().stream()
-                 // START_HIGHLIGHT
                  .filter(r -> r.rating() >= 740)
-                 // END_HIGHLIGHT
                  .map(CreditRating::rating)
                  .collect(toSet());
          var ratings = results.stream()
@@ -115,6 +108,5 @@ class ACreditHistory {
          ratings.addAll(inverseRatings);
          assertEquals(Set.of(600, 639, 740, 780), ratings);
       }
-      // END:find
    }
 }
