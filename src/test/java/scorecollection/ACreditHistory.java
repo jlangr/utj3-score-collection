@@ -115,6 +115,7 @@ class ACreditHistory {
       }
    }
 
+// START:test
    @Nested
    class Stream {
       CreditRating march = new CreditRating(640, LocalDate.of(2024, MARCH, 10));
@@ -132,4 +133,5 @@ class ACreditHistory {
          assertEquals(List.of(may, april, march), stream.collect(toList()));
       }
    }
+// END
 }
