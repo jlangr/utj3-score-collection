@@ -54,7 +54,9 @@ public class CreditHistory {
       return ratings;
    }
 
+   // START_HIGHLIGHT
    public Stream<CreditRating> stream() {
+   // END_HIGHLIGHT
       var reversedRatings = new ArrayList<>(ratings);
       Collections.reverse(reversedRatings);
       return reversedRatings.stream();
